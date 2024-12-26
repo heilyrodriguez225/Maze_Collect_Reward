@@ -1,0 +1,21 @@
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.AssemblyInfoInputs.cache
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.AssemblyInfo.cs
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.csproj.CoreCompileInputs.cache
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Heily 1er Proyecto Pro.exe
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Heily 1er Proyecto Pro.deps.json
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Heily 1er Proyecto Pro.runtimeconfig.json
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Heily 1er Proyecto Pro.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Heily 1er Proyecto Pro.pdb
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\refint\Heily 1er Proyecto Pro.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.pdb
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.genruntimeconfig.cache
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\ref\Heily 1er Proyecto Pro.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Spectre.Console.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\Spectre.Console.Cli.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\de\Spectre.Console.Cli.resources.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\fr\Spectre.Console.Cli.resources.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\bin\Debug\net8.0\sv\Spectre.Console.Cli.resources.dll
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1er Proyecto Pro.csproj.AssemblyReference.cache
+C:\Users\particular\Desktop\Proyecto pro Maze_runners\Heily 1er Proyecto Pro\obj\Debug\net8.0\Heily 1e.9CCAB841.Up2Date
