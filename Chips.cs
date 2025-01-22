@@ -17,9 +17,12 @@ namespace Game
         }
         public abstract void UseSkill();
 
-        public virtual void ReduceCooldown()
+        public virtual void ReduceCooldown(Player currentPlayer, bool GameOver, int Cooldown) //una vez que el jugador halla jugado cooldown-1
         {
-            
+            while(!GameOver)
+            {
+
+            }
         }
         
     }
@@ -61,27 +64,30 @@ namespace Game
     public class YellowChip : Chip
     {
         public YellowChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-        public override void UseSkill() // aun no se
+        public override void UseSkill() // Move To A Random Cell
         {
             throw new NotImplementedException();
         }
-        /*public  void UseSkill()
+        public  void UseSkill(int positionActualX, int positionActualY, List<int[]> PathCells)
         {
             if(Cooldown == 0)
             {
-                //Logica de la habilidad
+                Random random = new Random();
+                int randomCell = random.Next(PathCells.Count); 
+                positionActualX = PathCells[randomCell][0];
+                positionActualY = PathCells[randomCell][1];
             }
-        }*/
+        }
     }
     public class OrangeChip : Chip
     {
         public OrangeChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-        public override void UseSkill()
+        public override void UseSkill() //Win A Diamond
         {
             throw new NotImplementedException();
         }
         int diamond = 3;
-        public void UseSkill(int playerMoney) // WinADiamond
+        public void UseSkill(int playerMoney) 
         {
             if(Cooldown == 0)
             {

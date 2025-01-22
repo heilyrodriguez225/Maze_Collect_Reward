@@ -6,9 +6,13 @@ namespace Game
     {
         public static void Main(string[] args)
         {
-            Maze maze = new Maze(25,25);
+            Maze maze = new Maze(11,11);
+            maze.InitializeMaze();
+            maze.GenerateMaze(1,1);
+            maze.ApplyMask();
             maze.Imprimir();
+            maze.AddModifiersInMaze(5);
+
         }
-        
     }
 }

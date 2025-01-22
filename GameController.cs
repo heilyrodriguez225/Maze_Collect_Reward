@@ -10,10 +10,10 @@ namespace Game
         private static void InitializeChip()
         {
            Chips.Add(new BlueChip("BlueChip", 2, 3)); 
-           Chips.Add(new RedChip("RedChip", 3, 5)); 
-           Chips.Add(new YellowChip("YellowChip", 3, 4));
-           Chips.Add(new OrangeChip("OrangeChip", 4, 5));
-           Chips.Add(new PurpleChip("PurpleChip", 2, 6));
+           Chips.Add(new RedChip("RedChip", 3, 4)); 
+           Chips.Add(new YellowChip("YellowChip", 3, 3));
+           Chips.Add(new OrangeChip("OrangeChip", 4, 4));
+           Chips.Add(new PurpleChip("PurpleChip", 2, 5));
         }
         public static void InitializePlayers()
         {
@@ -64,5 +64,5 @@ namespace Game
                     break; 
             }
         }
-    }
+    }//comprobar si el jugador cae en una trampa
 }

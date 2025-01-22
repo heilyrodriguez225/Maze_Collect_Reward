@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\particular\\Desktop\\Proyecto pro Maze_runners\\Heily 1er Proyecto Pro\\Heily 1er Proyecto Pro.csproj": {}
+    "/home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/Heily 1er Proyecto Pro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\particular\\Desktop\\Proyecto pro Maze_runners\\Heily 1er Proyecto Pro\\Heily 1er Proyecto Pro.csproj": {
+    "/home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/Heily 1er Proyecto Pro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\particular\\Desktop\\Proyecto pro Maze_runners\\Heily 1er Proyecto Pro\\Heily 1er Proyecto Pro.csproj",
+        "projectUniqueName": "/home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/Heily 1er Proyecto Pro.csproj",
         "projectName": "Heily 1er Proyecto Pro",
-        "projectPath": "C:\\Users\\particular\\Desktop\\Proyecto pro Maze_runners\\Heily 1er Proyecto Pro\\Heily 1er Proyecto Pro.csproj",
-        "packagesPath": "C:\\Users\\particular\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\particular\\Desktop\\Proyecto pro Maze_runners\\Heily 1er Proyecto Pro\\obj\\",
+        "projectPath": "/home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/Heily 1er Proyecto Pro.csproj",
+        "packagesPath": "/home/heily/.nuget/packages/",
+        "outputPath": "/home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\particular\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/heily/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -68,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
