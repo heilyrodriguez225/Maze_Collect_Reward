@@ -2,20 +2,6 @@ using System;
 using System.Collections.Generic; 
 namespace Game
 {
-   /*public enum Type
-        {
-            ReturnToStart, //regresar a la posicion inicial
-            Paralyze, //paralizar durante los sgtes 3 turnos
-            OverrideSkill, //anular habilidad
-            SlowDownChip, //disminuir velocidad de tu ficha
-            MoveToARandomCell, //transportar una ficha a una celda aleatoria
-            LoseADiamond, //perder un diamante
-            LoseACoin, //perder una moneda
-            WinADiamond, //gana un diamante
-            WinACoin, //gana una moneda
-            PassThroughWall, //atravesar un muro NO IMPLEMENTADO
-            SuperSpeed //duplicar velocidad
-        }*/
     public abstract class Modifier
     {
         public int CoordinateX { get; }

@@ -7,15 +7,15 @@ namespace Game
     //generacion del laberinto utilizando el algoritmo "Recursive Backtracking"
     public class Maze
     {
-        private int columns; 
-        private int rows;
+        public int columns; 
+        public int rows;
         private const int Path = 0;
         private const int Wall = 1;
         public int[,] maze;
         private Random random = new Random();
-        private List<Modifier> Modifiers = new List<Modifier>();
-        private List<Coin> Coins = new List<Coin>();
-        private List<Diamond> Diamonds = new List<Diamond>();
+        public List<Modifier> Modifiers = new List<Modifier>();
+        public List<Coin> Coins = new List<Coin>();
+        public List<Diamond> Diamonds = new List<Diamond>();
 
         public Maze(int rows, int columns) //Constructor de la clase Maze
         {
@@ -151,17 +151,7 @@ namespace Game
                 list[j] = temp;
             }
         }
-        public void Imprimir() // este metodo es de prueba 
-        {
-            for (int y = 0; y < columns; y++)
-            {
-                for (int x = 0; x < rows; x++)
-                {
-                    Console.Write(maze[x,y] == Wall ? "1 " : "0 ");
-                }
-                Console.WriteLine();
-            }
-        }
+        
         public List<int[]> PathCells;
         public void AddPathCells()
         {
@@ -170,9 +160,9 @@ namespace Game
             {
                 for (int j = 0; j < maze.GetLength(1); j++)
                 {
-                    if(maze[rows, columns] == Path)
+                    if(maze[i, j] == Path)
                     {
-                        PathCells.Add([rows,columns]);
+                        PathCells.Add([i, j]);
                     }
                 }
             }
@@ -224,6 +214,23 @@ namespace Game
                 modifiersInTheMaze++;
             }
         }
+        public Modifier CheckForModifierInTheCell(int positionActualX, int positionActualY)
+        {
+            for (int k = 0; k < Modifiers.Count; k++)
+            {
+                if(positionActualX == Modifiers[k].CoordinateX && positionActualY == Modifiers[k].CoordinateY)
+                {
+                    return Modifiers[k];
+                }
+            }
+            return null;
+        }
+        public void ActivatedModifierInMaze(int positionActualX, int positionActualY)
+        {
+            Modifier m = CheckForModifierInTheCell(positionActualX, positionActualY);
+            if(m == null) return;
+            m.ActivatedModifier();
+        }
         public void AddMoneyInMaze(int amountCoins, int amountDiamonds)
         {
             int coinsInTheMaze = 0;
@@ -240,12 +247,13 @@ namespace Game
                 Random random = new Random();
                 int x = random.Next(PathCells.Count);
                 
-                while(!Coins.Contains(new Coin(PathCells[x][0], PathCells[x][1])))
+                if(!Coins.Contains(new Coin(PathCells[x][0], PathCells[x][1])))
                 {
                     Diamonds.Add(new Diamond(PathCells[x][0], PathCells[x][1]));
                 }
                 diamondsInTheMaze ++;
             }
         }
+        
     }
 }

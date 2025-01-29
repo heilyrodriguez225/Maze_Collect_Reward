@@ -16,15 +16,17 @@ namespace Game
             Cooldown = cooldown;
         }
         public abstract void UseSkill();
-
-        public virtual void ReduceCooldown(Player currentPlayer, bool GameOver, int Cooldown) //una vez que el jugador halla jugado cooldown-1
+       
+        public virtual void ReduceCooldown(Player currentPlayer, bool GameOver, int Cooldown, bool itsYourTurn) //una vez que el jugador halla jugado cooldown-1
         {
             while(!GameOver)
             {
-
+                if (currentPlayer.Chip.Cooldown > 0) 
+                { 
+                    currentPlayer.Chip.Cooldown--;
+                }
             }
         }
-        
     }
     public class BlueChip : Chip
     {
@@ -53,13 +55,52 @@ namespace Game
         {
             throw new NotImplementedException();
         }
-        /*public void UseSkill() 
+        public void UseSkill(int positionActualX, int positionActualY, int[,] maze) 
         {
             if(Cooldown == 0)
             {
-                //Logica de la habilidad
+                if(CanJump(0,positionActualX, positionActualY, maze, Directions.Right))
+                {
+                    positionActualY += 2;   
+                }
+                else if(CanJump(0,positionActualX, positionActualY, maze, Directions.Left))
+                {
+                    positionActualY -= 2;    
+                }
+                else if(CanJump(0,positionActualX, positionActualY, maze, Directions.Up))
+                {
+                    positionActualX -= 2;    
+                }
+                else if(CanJump(0,positionActualX, positionActualY, maze, Directions.Down))
+                {
+                    positionActualX += 2;    
+                }
             }
-        }*/
+        }
+        public bool CanJump(int cooldown, int positionActualX, int positionActualY, int[,] maze, Directions directions)
+        {
+            bool canJump = false;
+            if(cooldown == 0)
+            {
+                if(directions == Directions.Right && maze[positionActualX, positionActualY + 1] == 1 && maze[positionActualX, positionActualY + 2] == 0)
+                {
+                    canJump = true;
+                }
+                else if(directions == Directions.Left && maze[positionActualX, positionActualY - 1] == 1 && maze[positionActualX, positionActualY - 2] == 0)
+                {
+                    canJump = true;
+                }
+                else if(directions == Directions.Up && maze[positionActualX - 1, positionActualY] == 1 && maze[positionActualX - 2, positionActualY] == 0)
+                {
+                    canJump = true;
+                }
+                else if(directions == Directions.Down && maze[positionActualX + 1, positionActualY] == 1 && maze[positionActualX + 2, positionActualY] == 0)
+                {
+                    canJump = true;
+                }
+            }
+            return canJump;
+        }
     }
     public class YellowChip : Chip
     {

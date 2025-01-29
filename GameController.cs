@@ -15,7 +15,7 @@ namespace Game
            Chips.Add(new OrangeChip("OrangeChip", 4, 4));
            Chips.Add(new PurpleChip("PurpleChip", 2, 5));
         }
-        public static void InitializePlayers()
+        /*public static void InitializePlayers()
         {
             AnsiConsole.Markup("[underline black] Elige una ficha:"); 
             for (int i = 0; i < Chips.Count; i++) 
@@ -24,11 +24,11 @@ namespace Game
             } 
             int selection = int.Parse(Console.ReadLine()) - 1; 
 
-            Players.Add(new Player("Player1", 1, 1, Chips[selection], 0));
-            Players.Add(new Player("Player2", 24, 1, Chips[selection], 0));
-            Players.Add(new Player("Player3", 1, 24, Chips[selection], 0));
-            Players.Add(new Player("Player4", 24, 24, Chips[selection], 0));
-        }
+            Players.Add(new Player("Player1", Chips[selection], 0, Maze));
+            Players.Add(new Player("Player2", Chips[selection], 0, Maze));
+            Players.Add(new Player("Player3", Chips[selection], 0, Maze));
+            Players.Add(new Player("Player4", Chips[selection], 0, Maze));
+        }*/
         static int currentRound = 1;
         static int currentTurn = 0;
         static Player currentPlayer = Players[currentTurn];
@@ -44,25 +44,5 @@ namespace Game
                 currentRound = (currentTurn / Players.Count) + 1;
             }
         }
-        public static void Move(int positionX, int positionY)
-        {
-            ConsoleKeyInfo key = new ConsoleKeyInfo();
-            key = Console.ReadKey(true);
-            switch (key.Key) 
-            { 
-                case ConsoleKey.UpArrow: 
-                    if(positionY > 0) positionY--;
-                    break;
-                case ConsoleKey.DownArrow: 
-                    if(positionY < Console.WindowHeight - 1) positionY++;
-                    break; 
-                case ConsoleKey.LeftArrow: 
-                    if(positionX > 0) positionX--; 
-                    break; 
-                case ConsoleKey.RightArrow: 
-                    if(positionX < Console.WindowWidth - 1) positionX++;
-                    break; 
-            }
-        }
-    }//comprobar si el jugador cae en una trampa
+    }
 }
