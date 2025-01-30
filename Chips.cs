@@ -15,7 +15,7 @@ namespace Game
             Speed = speed;
             Cooldown = cooldown;
         }
-        public abstract void UseSkill();
+        public abstract void UseSkill(Parameters x);
        
         public virtual void ReduceCooldown(Player currentPlayer, bool GameOver, int Cooldown, bool itsYourTurn) //una vez que el jugador halla jugado cooldown-1
         {
@@ -31,19 +31,15 @@ namespace Game
     public class BlueChip : Chip
     {
         public BlueChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-        public override void UseSkill() // SuperSpeed
-        {
-            throw new NotImplementedException();
-        }
         int count = 3;
         int speedRound;
-        public void UseSkill(int speed, int round)
+        public override void UseSkill(Parameters x) // SuperSpeed
         {
              if(Cooldown == 0)
             { 
-                if (round != speedRound + count)
+                if (x.round != speedRound + count)
                 {
-                speed = speed * 2;
+                x.speed = x.speed * 2;
                 }
             }
         }
@@ -51,29 +47,25 @@ namespace Game
     public class RedChip : Chip
     {
         public RedChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-        public override void UseSkill() // Pass Through Wall
-        {
-            throw new NotImplementedException();
-        }
-        public void UseSkill(int positionActualX, int positionActualY, int[,] maze) 
+        public override void UseSkill(Parameters x) // Pass Through Wall 
         {
             if(Cooldown == 0)
             {
-                if(CanJump(0,positionActualX, positionActualY, maze, Directions.Right))
+                if(CanJump(0, x.positionActualX, x.positionActualY, x.maze.maze, Directions.Right))
                 {
-                    positionActualY += 2;   
+                    x.positionActualY += 2;   
                 }
-                else if(CanJump(0,positionActualX, positionActualY, maze, Directions.Left))
+                else if(CanJump(0, x.positionActualX, x.positionActualY, x.maze.maze, Directions.Left))
                 {
-                    positionActualY -= 2;    
+                    x.positionActualY -= 2;    
                 }
-                else if(CanJump(0,positionActualX, positionActualY, maze, Directions.Up))
+                else if(CanJump(0, x.positionActualX, x.positionActualY, x.maze.maze, Directions.Up))
                 {
-                    positionActualX -= 2;    
+                    x.positionActualX -= 2;    
                 }
-                else if(CanJump(0,positionActualX, positionActualY, maze, Directions.Down))
+                else if(CanJump(0, x.positionActualX, x.positionActualY, x.maze.maze, Directions.Down))
                 {
-                    positionActualX += 2;    
+                    x.positionActualX += 2;    
                 }
             }
         }
@@ -105,50 +97,38 @@ namespace Game
     public class YellowChip : Chip
     {
         public YellowChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-        public override void UseSkill() // Move To A Random Cell
-        {
-            throw new NotImplementedException();
-        }
-        public  void UseSkill(int positionActualX, int positionActualY, List<int[]> PathCells)
+        public override void UseSkill(Parameters x) // Move To A Random Cell
         {
             if(Cooldown == 0)
             {
                 Random random = new Random();
-                int randomCell = random.Next(PathCells.Count); 
-                positionActualX = PathCells[randomCell][0];
-                positionActualY = PathCells[randomCell][1];
+                int randomCell = random.Next(x.PathCells.Count); 
+                x.positionActualX = x.PathCells[randomCell][0];
+                x.positionActualY = x.PathCells[randomCell][1];
             }
         }
     }
     public class OrangeChip : Chip
     {
         public OrangeChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-        public override void UseSkill() //Win A Diamond
-        {
-            throw new NotImplementedException();
-        }
         int diamond = 3;
-        public void UseSkill(int playerMoney) 
+        public override void UseSkill(Parameters x) //Win A Diamond
         {
             if(Cooldown == 0)
             {
-                playerMoney = playerMoney + diamond;
+                x.playerMoney = x.playerMoney + diamond;
             }
         }
     }
     public class PurpleChip : Chip
     {
         public PurpleChip(string name, int speed, int cooldown) : base(name, speed, cooldown){}
-         public override void UseSkill() // WinACoin
-         {
-            throw new NotImplementedException();
-         }
          int coin = 1;
-        public void UseSkill(int playerMoney) 
+        public override void UseSkill(Parameters x) // WinACoin
         {
             if(Cooldown == 0)
             {
-                playerMoney = playerMoney + coin;
+                x.playerMoney = x.playerMoney + coin;
             }
         }
     }

@@ -22,12 +22,12 @@ namespace Game
            this.columns = columns;
            this.rows = rows;
            maze = new int[rows, columns];
-           //InitializeMaze();
-           //GenerateMaze(1,1);
-           //ApplyMask();
-           //AddPathCells();
-           //AddModifiersInMaze(5);
-           //AddMoneyInMaze(6,2);
+           InitializeMaze();
+           GenerateMaze(1,1);
+           ApplyMask();
+           AddPathCells();
+           AddModifiersInMaze(5);
+           AddMoneyInMaze(6,2);
         }
         public void InitializeMaze()
         {
@@ -57,7 +57,8 @@ namespace Game
                 int nx2 = nx + direction[0];int ny2 = ny + direction[1];
                 if(InsideTheRange(nx2, ny2))
                 {
-                    if(maze[nx2,ny2] == Wall){
+                    if(maze[nx2,ny2] == Wall)
+                    {
                         maze[nx, ny] = Path;
                         maze[nx2, ny2] = Path;
                         GenerateMaze(nx2, ny2);
@@ -214,23 +215,23 @@ namespace Game
                 modifiersInTheMaze++;
             }
         }
-        public Modifier CheckForModifierInTheCell(int positionActualX, int positionActualY)
+        public Modifier CheckForModifierInTheCell(Player player)
         {
             for (int k = 0; k < Modifiers.Count; k++)
             {
-                if(positionActualX == Modifiers[k].CoordinateX && positionActualY == Modifiers[k].CoordinateY)
+                if(player.PositionX == Modifiers[k].CoordinateX && player.PositionY == Modifiers[k].CoordinateY)
                 {
                     return Modifiers[k];
                 }
             }
             return null;
         }
-        public void ActivatedModifierInMaze(int positionActualX, int positionActualY)
+        /*public void ActivatedModifierInMaze(Player player)
         {
-            Modifier m = CheckForModifierInTheCell(positionActualX, positionActualY);
+            Modifier m = CheckForModifierInTheCell(player);
             if(m == null) return;
             m.ActivatedModifier();
-        }
+        }*/
         public void AddMoneyInMaze(int amountCoins, int amountDiamonds)
         {
             int coinsInTheMaze = 0;
@@ -254,6 +255,13 @@ namespace Game
                 diamondsInTheMaze ++;
             }
         }
-        
+        public bool MoneyLeft()
+        {
+            if(Coins.Count == 0 && Diamonds.Count == 0)
+            {
+                return false;
+            }
+            else return true;
+        }
     }
 }

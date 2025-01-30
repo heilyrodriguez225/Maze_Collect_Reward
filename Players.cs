@@ -15,7 +15,9 @@ namespace Game
             Name = name;
             Chip = chip;
             Money = money;
+            //SelectRandomChip();
             InitializePlayerPositionInMaze(maze);
+            CollectMoney(maze);
         }
         public void Move(Maze maze)
         {
@@ -61,12 +63,30 @@ namespace Game
             PositionX = x;
             PositionY = y;
         }
-        public void CollectMoney(Maze maze, Modifier modifier)
+        public void SelectRandomChip(List<Chip> Chips)
         {
-            if(maze.maze[PositionX, PositionY] == maze.maze[modifier.CoordinateX, modifier.CoordinateY])  
+            Random random = new Random();
+            int x = random.Next(Chips.Count);
+            Chip = Chips[x];
+        }
+        public void CollectMoney(Maze maze)
+        {
+            for (int k = 0; k < maze.Coins.Count; k++)
             {
-                maze.maze[PositionX, PositionY] = 0;
-            } 
+                if(PositionX == maze.Coins[k].CoordinateX && PositionY == maze.Coins[k].CoordinateY)  
+                {
+                    maze.Coins.Remove(maze.Coins[k]);
+                    Money ++;
+                } 
+            }
+            for (int k = 0; k < maze.Diamonds.Count; k++)
+            {
+                if(PositionX == maze.Diamonds[k].CoordinateX && PositionY == maze.Diamonds[k].CoordinateY)  
+                {
+                    maze.Diamonds.Remove(maze.Diamonds[k]);
+                    Money +=3;
+                } 
+            }
         }
     }
 }

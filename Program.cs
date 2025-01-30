@@ -6,32 +6,45 @@ namespace Game
     {
         public static void Main(string[] args)
         {
-
             Maze maze = new Maze(11,11);
-            maze.InitializeMaze();
-            maze.GenerateMaze(1,1);
-            maze.ApplyMask();
-            maze.AddPathCells();
-            maze.AddModifiersInMaze(6);
-            maze.AddMoneyInMaze(10,6);
-            Player p = new Player("Player1",new BlueChip("Pedro",3,0),0,maze);
-            
-            Imprimir(maze, p, maze.Modifiers);
-            while (true)
-            {
-                p.Move(maze);
-                Console.WriteLine(" ");
-                Imprimir(maze, p, maze.Modifiers);
+
+            Player player1= new Player("Player1",new BlueChip("Pedro",3,0),0,maze);
+            Player player2= new Player("Player2",new BlueChip("Pedro",2,0),0,maze);
+            //maze.ActivatedModifierInMaze(p);
+            var players = new List<Player>();
+            players.Add(player1);
+            players.Add(player2);
+            Player winnerPlayer = null;
+            Player auxPlayer = new Player("AuxPlayer", new BlueChip("BlueChip",3,0),0,maze);
+            int i = 0;
+            Print(maze, players, maze.Modifiers);
+            do{
+                int x = 0;
+                auxPlayer = players[i % players.Count];
+                while(x <= auxPlayer.Chip.Speed)
+                {
+                    auxPlayer.Move(maze);
+                    x++;
+                    Console.WriteLine(" ");
+                    auxPlayer.CollectMoney(maze);
+                    winnerPlayer = VictoryCondition.CheckVictory(maze,players);
+                    Print(maze, players, maze.Modifiers);
+                }
+                i++;
             }
+            while (winnerPlayer == null);
+            Console.WriteLine($"Ha ganado el player {winnerPlayer.Name}");
         }
-        public static void Imprimir(Maze maze, Player p, List<Modifier> Modifiers)
+        public static void Print(Maze maze, List<Player> players, List<Modifier> Modifiers)
         {
             for (int x = 0; x < maze.maze.GetLength(0); x++)
             {
                 for (int y = 0; y < maze.maze.GetLength(1); y++)
                 {
-                        if(x == p.PositionX && y == p.PositionY)
+                        if(x == players[0].PositionX && y == players[0].PositionY)
                             Console.Write("9 ");
+                        else if (x == players[1].PositionX && y == players[1].PositionY)
+                            Console.Write("8 ");
                         else if(PrintCoins(maze,x,y))
                             Console.Write("3 ");
                         else if(PrintDiamonds(maze,x,y))

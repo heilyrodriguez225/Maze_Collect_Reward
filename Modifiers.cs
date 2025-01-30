@@ -12,147 +12,128 @@ namespace Game
             CoordinateX = coordinateX;
             CoordinateY = coordinateY;
         }
-        public abstract void ActivatedModifier();
+        public abstract void ActivatedModifier(Parameters x);
     }
     public class ReturnToStartTrap : Modifier 
     {
         public ReturnToStartTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-        public override void ActivatedModifier()
+
+        public override void ActivatedModifier(Parameters x)
         {
-            throw new NotImplementedException();
-        }
-        public void ActivatedModifier(int positionInitialX, int positionInitialY, int positionActualX, int positionActualY)
-        {
-                positionActualX = positionInitialX;
-                positionActualY = positionInitialY;
+            x.positionActualX = x.positionInitialX;
+            x.positionActualY = x.positionInitialY;
         }
     }
     public class MoveToARandomCellTrap : Modifier 
     {
         public MoveToARandomCellTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
-        public void ActivatedModifier(int positionActualX, int positionActualY, List<int[]> PathCells)
+        public override void ActivatedModifier(Parameters x) //int positionActualX, int positionActualY, List<int[]> PathCells
         {
             Random random = new Random();
-            int randomCell = random.Next(PathCells.Count); 
-            positionActualX = PathCells[randomCell][0];
-            positionActualY = PathCells[randomCell][1];
+            int randomCell = random.Next(x.PathCells.Count); 
+            x.positionActualX = x.PathCells[randomCell][0];
+            x.positionActualY = x.PathCells[randomCell][1];
         }
     }
     public class ParalyzeTrap : Modifier 
     {
         public ParalyzeTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-        public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
         int slow = 3;
         int paralyzeRound;
-        public void ActivatedModifier(int positionActualX, int positionActualY, int round, bool itsYourTurn)
+        public override void ActivatedModifier(Parameters x) 
         {
-            if (round != paralyzeRound + slow && itsYourTurn == true)
+            if (x.round != paralyzeRound + slow && x.itsYourTurn == true)
             {
-                itsYourTurn = false;
+                x.itsYourTurn = false;
             }
             else
             {
-                itsYourTurn = true;
+                x.itsYourTurn = true;
             }
         }
     }
     public class OverrideSkillTrap : Modifier 
     {
         public OverrideSkillTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-        public override void ActivatedModifier()
+        public override void ActivatedModifier(Parameters x) 
         {
-            throw new NotImplementedException();
-        }
-        public void ActivatedModifier(int cooldown , int initialCooldown)
-        {
-            if(cooldown == 0)
+            if(x.cooldown == 0)
             {
-                cooldown = initialCooldown;
+                x.cooldown = x.initialCooldown;
             }
         }
     }
     public class SlowDownChipTrap : Modifier 
     {
         public SlowDownChipTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
         int retarder = 3;
         int retarderRound;
-        public void ActivatedModifier(int speed, int round, bool isYourTurn)
+        public override void ActivatedModifier(Parameters x) 
         {
-            if (round != retarderRound + retarder && isYourTurn == true)
+            if (x.round != retarderRound + retarder && x.itsYourTurn == true)
             {
-                speed = 1;
+                x.speed = 1;
             }
         }
     }
     public class LoseADiamondTrap : Modifier 
     {
         public LoseADiamondTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
         int diamond = 3;
-        public void ActivatedModifier(int playerMoney)
+        public override void ActivatedModifier(Parameters x) 
         {
-            playerMoney = playerMoney - diamond;
+            x.playerMoney = x.playerMoney - diamond;
         }
     }
     public class LoseACoinTrap : Modifier 
     {
         public LoseACoinTrap(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
         int coin = 1;
-        public void ActivatedModifier(int playerMoney)
+        public override void ActivatedModifier(Parameters x) 
         {
-            playerMoney = playerMoney - coin;
+            x.playerMoney = x.playerMoney - coin;
         }
     }
     public class WinADiamondBenefit : Modifier 
     {
         public WinADiamondBenefit(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
         int diamond = 3;
-        public void ActivatedModifier(int playerMoney)
+        public override void ActivatedModifier(Parameters x)
         {
-            playerMoney = playerMoney + diamond;
+            x.playerMoney = x.playerMoney + diamond;
         }
     }
     public class WinACoinBenefit : Modifier 
     {
         public WinACoinBenefit(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
+
         int coin = 1;
-        public void ActivatedModifier(int playerMoney)
+        public override void ActivatedModifier(Parameters x) //int playerMoney
         {
-            playerMoney = playerMoney + coin;
+            x.playerMoney = x.playerMoney + coin;
         }
     }
     public class PassThroughWallBenefit : Modifier 
     {
         public PassThroughWallBenefit(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
+        public override void ActivatedModifier(Parameters x) 
         {
-            throw new NotImplementedException();
+            if(CanJump(0, x.positionActualX, x.positionActualY, x.maze.maze, Directions.Right))
+            {
+                x.positionActualY += 2;   
+            }
+            else if(CanJump(0,x.positionActualX, x.positionActualY, x.maze.maze, Directions.Left))
+            {
+                x.positionActualY -= 2;    
+            }
+            else if(CanJump(0,x.positionActualX, x.positionActualY, x.maze.maze,Directions.Up))
+            {
+                x.positionActualX -= 2;    
+            }
+            else if(CanJump(0,x.positionActualX, x.positionActualY, x.maze.maze,Directions.Down))
+            {
+                x.positionActualX += 2;    
+            }
         }
         public bool CanJump(int cooldown, int positionActualX, int positionActualY, int[,] maze, Directions directions)
         {
@@ -178,40 +159,18 @@ namespace Game
             }
             return canJump;
         }
-        public void ActivatedModifier(int positionActualX, int positionActualY, int[,] maze)
-        {
-            if(CanJump(0,positionActualX, positionActualY, maze,Directions.Right))
-            {
-                positionActualY += 2;   
-            }
-            else if(CanJump(0,positionActualX, positionActualY, maze,Directions.Left))
-            {
-                positionActualY -= 2;    
-            }
-            else if(CanJump(0,positionActualX, positionActualY, maze,Directions.Up))
-            {
-                positionActualX -= 2;    
-            }
-            else if(CanJump(0,positionActualX, positionActualY, maze,Directions.Down))
-            {
-                positionActualX += 2;    
-            }
-        }
     }
     public class SuperSpeedBenefit : Modifier 
     {
         public SuperSpeedBenefit(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-         public override void ActivatedModifier()
-        {
-            throw new NotImplementedException();
-        }
         int count = 3;
         int speedRound;
-        public void ActivatedModifier(int speed, int round)
+        public override void ActivatedModifier(Parameters x) //int speed, int round
         {
-            if (round != speedRound + count)
+
+            if (x.round != speedRound + count)
             {
-                speed = speed * 2;
+                x.speed = x.speed * 2;
             }
         }
     }
