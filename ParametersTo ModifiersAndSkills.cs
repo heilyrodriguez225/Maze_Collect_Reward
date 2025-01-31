@@ -4,27 +4,16 @@ namespace Game
 {
     public class Parameters //Contenedor de dependencia
     {
-        public int positionInitialX;
-        public int positionInitialY;
         public int positionActualX; 
         public int positionActualY;
         public int round;
         public bool itsYourTurn;
         public int cooldown; 
-        public int initialCooldown;
+        public int maxCooldown;
         public int speed; 
         public int playerMoney;
         public List<int[]> PathCells;
         public Maze maze;
-
-        public void PositionInitialXAdd(int x)
-        {
-            positionInitialX = x;
-        }
-        public void PositionInitialYAdd(int x)
-        {
-            positionInitialY = x;
-        }
         public void PositionActualXAdd(int x)
         {
             positionActualX = x;
@@ -45,9 +34,9 @@ namespace Game
         {
             cooldown = x;
         }
-        public void InitialCooldownAdd(int x)
+        public void MaxCooldownAdd(int x)
         {
-            initialCooldown = x;
+            maxCooldown = x;
         }
         public void SpeedAdd(int x)
         {

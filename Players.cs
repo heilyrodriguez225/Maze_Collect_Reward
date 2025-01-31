@@ -15,7 +15,6 @@ namespace Game
             Name = name;
             Chip = chip;
             Money = money;
-            //SelectRandomChip();
             InitializePlayerPositionInMaze(maze);
             CollectMoney(maze);
         }
@@ -27,24 +26,24 @@ namespace Game
             { 
                 case ConsoleKey.UpArrow: 
                     if(PositionX > 0 && maze.maze[PositionX - 1, PositionY] == 0) 
-                    PositionX--;
+                        PositionX--;
                     else Move(maze);
-                    return;
+                        return;
                 case ConsoleKey.DownArrow: 
                     if(PositionX < maze.rows - 1 && maze.maze[PositionX + 1, PositionY] == 0) 
-                    PositionX++;
+                        PositionX++;
                     else Move(maze);
-                    return; 
+                        return; 
                 case ConsoleKey.LeftArrow: 
                     if(PositionY > 0 && maze.maze[PositionX, PositionY - 1] == 0) 
-                    PositionY--; 
+                        PositionY--; 
                     else Move(maze);
-                    return; 
+                        return; 
                 case ConsoleKey.RightArrow: 
                     if(PositionY < maze.columns - 1 && maze.maze[PositionX, PositionY + 1] == 0) 
-                    PositionY++;
+                        PositionY++;
                     else Move(maze);
-                    return;
+                        return;
                 default:
                     Move(maze);
                     break; 

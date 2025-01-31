@@ -12,6 +12,7 @@ namespace Game
         private const int Path = 0;
         private const int Wall = 1;
         public int[,] maze;
+        public List<int[]> PathCells;
         private Random random = new Random();
         public List<Modifier> Modifiers = new List<Modifier>();
         public List<Coin> Coins = new List<Coin>();
@@ -26,8 +27,8 @@ namespace Game
            GenerateMaze(1,1);
            ApplyMask();
            AddPathCells();
-           AddModifiersInMaze(5);
-           AddMoneyInMaze(6,2);
+           AddModifiersInMaze(30);
+           AddMoneyInMaze(40,25);
         }
         public void InitializeMaze()
         {
@@ -152,8 +153,6 @@ namespace Game
                 list[j] = temp;
             }
         }
-        
-        public List<int[]> PathCells;
         public void AddPathCells()
         {
             PathCells = new List<int[]>();
@@ -175,40 +174,34 @@ namespace Game
             {
                 Random random = new Random(); 
                 int x = random.Next(PathCells.Count);
-                int r = random.Next(11);
+                int r = random.Next(9);
                 switch (r)
                 {
                     case 0:
-                        Modifiers.Add( new ReturnToStartTrap(PathCells[x][0],PathCells[x][1]));
-                        break;
-                    case 1:
                         Modifiers.Add( new MoveToARandomCellTrap(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 2:
-                        Modifiers.Add( new ParalyzeTrap(PathCells[x][0],PathCells[x][1]));
-                        break;
-                    case 3:
+                    case 1:
                         Modifiers.Add( new OverrideSkillTrap(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 4:
+                    case 2:
                         Modifiers.Add( new SlowDownChipTrap(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 5:
+                    case 3:
                         Modifiers.Add( new WinADiamondBenefit(PathCells[x][0],PathCells[x][1]));
                         break;   
-                    case 6:
+                    case 4:
                         Modifiers.Add( new WinACoinBenefit(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 7:
+                    case 5:
                         Modifiers.Add( new PassThroughWallBenefit(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 8:
+                    case 6:
                         Modifiers.Add( new SuperSpeedBenefit(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 9:
+                    case 7:
                         Modifiers.Add( new LoseADiamondTrap(PathCells[x][0],PathCells[x][1]));
                         break;
-                    case 10:
+                    case 8:
                         Modifiers.Add( new LoseACoinTrap(PathCells[x][0],PathCells[x][1]));
                         break;
                 } 
@@ -226,12 +219,12 @@ namespace Game
             }
             return null;
         }
-        /*public void ActivatedModifierInMaze(Player player)
+        public void ActivatedModifierInMaze(Player player, Parameters x)
         {
-            Modifier m = CheckForModifierInTheCell(player);
-            if(m == null) return;
-            m.ActivatedModifier();
-        }*/
+            Modifier modifier = CheckForModifierInTheCell(player);
+            if(modifier == null) return;
+            modifier.ActivatedModifier(x);
+        }
         public void AddMoneyInMaze(int amountCoins, int amountDiamonds)
         {
             int coinsInTheMaze = 0;
