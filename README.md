@@ -13,9 +13,21 @@ En **Maze_Collect_Reward**, los jugadores navegan a través de un laberinto gene
 - **Variedad de Dinero**: Existen monedas con el valor de 1 y diamantes que valen 3 repartidos por el laberinto.
 - **Variedad de Fichas**: Cada jugador recibe una ficha asignada aleatoriamente con una habilidad especial.
 - **Controles Sencillos**: Usa las teclas de direcciones para moverte y la tecla `A` para usar tu habilidad.
-- **Juego en Consola**: Desarrollado en C# utilizando la librería Spectre.Console.
+- **Juego en Consola**:Desarrollado en C# utilizando la librería Spectre.Console.
 
-## Instalación
+### Funcionalidades del juego
+
+- **Chips**:Crea las fichas con su habilidad.
+- **Draw**:Dibuja todo el juego
+- **GameManager**:Controla el flujo del juego.
+- **Maze**: Genera el laberinto de forma recursiva, le pone máscaras para hacerlo de conexión múltiple y le añade el dinero y los modificadores.
+- **Modifiers**: Crea los modifificadores.
+- **Money**: Crea el dinero de tipo coin y diamont.
+- **Parameters**: Contenedor de dependencia para pasarle los parámetros pasa el uso de las habilidades y activar los modificadores.
+- **Players**: Crea un jugador, su movimiento, lo inicializa en una posición y le asigna una ficha aleatoriamente.
+- **VictoryCondition**: Determina la condición de victoria del juego.
+
+### Instalación
 
 Sigue estos pasos para clonar y configurar el proyecto:
 
