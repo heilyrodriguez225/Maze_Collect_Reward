@@ -193,7 +193,7 @@ namespace Game
                         Modifiers.Add( new WinACoinBenefit(PathCells[x][0],PathCells[x][1]));
                         break;
                     case 5:
-                        Modifiers.Add( new PassThroughWallBenefit(PathCells[x][0],PathCells[x][1]));
+                        Modifiers.Add( new DismissSpeedAndDuplicateMoneyBenefit(PathCells[x][0],PathCells[x][1]));
                         break;
                     case 6:
                         Modifiers.Add( new SuperSpeedBenefit(PathCells[x][0],PathCells[x][1]));

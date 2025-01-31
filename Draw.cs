@@ -88,15 +88,15 @@ namespace Game
             if(player == Players[0])
             {
                 if(player.Chip is OrangeChip)
-                    Console.WriteLine($"Player1: 🦋");
+                    Console.WriteLine("Player1: 🦋");
                 else if(player.Chip is PinkChip)
-                    Console.WriteLine($"Player1: 🐖");
+                    Console.WriteLine("Player1: 🐖");
                 else if(player.Chip is BrownChip)
-                    Console.WriteLine($"Player1: 🦉");
+                    Console.WriteLine("Player1: 🦉");
                 else if(player.Chip is GreenChip)
-                    Console.WriteLine($"Player1: 🐢");
+                    Console.WriteLine("Player1: 🐢");
                 else if(player.Chip is WhiteChip)
-                    Console.WriteLine($"Player1: 🦢");
+                    Console.WriteLine("Player1: 🦢");
             }
         }
         public static void InitialPlayer2Print(Player player, List<Player> Players)
@@ -104,15 +104,15 @@ namespace Game
             if(player == Players[1])
             {
                 if(player.Chip is OrangeChip)
-                    Console.WriteLine($"Player2: 🦀");
+                    Console.WriteLine("Player2: 🦀");
                 else if(player.Chip is PinkChip)
-                    Console.WriteLine($"Player2: 🦩");
+                    Console.WriteLine("Player2: 🦩");
                 else if(player.Chip is BrownChip)
-                    Console.WriteLine($"Player2: 🐎");
+                    Console.WriteLine("Player2: 🐎");
                 else if(player.Chip is GreenChip)
-                    Console.WriteLine($"Player2: 🐊");
+                    Console.WriteLine("Player2: 🐊");
                 else if(player.Chip is WhiteChip)
-                    Console.WriteLine($"Player2: 🐑");
+                    Console.WriteLine("Player2: 🐑");
             }
         }
         public static void TurnPrint(Player player)
@@ -137,8 +137,8 @@ namespace Game
                             Console.WriteLine($"Ha caido en un modificador WinADiamondBenefit");
                         else if(maze.Modifiers[k] is WinACoinBenefit)
                             Console.WriteLine($"Ha caido en un modificador WinACoinBenefit");
-                        else if(maze.Modifiers[k] is PassThroughWallBenefit)
-                            Console.WriteLine($"Ha caido en un modificador PassThroughWallBenefit");
+                        else if(maze.Modifiers[k] is DismissSpeedAndDuplicateMoneyBenefit)
+                            Console.WriteLine($"Ha caido en un modificador DismissSpeedAndDuplicateMoneyBenefit");
                         else if(maze.Modifiers[k] is SuperSpeedBenefit)
                             Console.WriteLine($"Ha caido en un modificador SuperSpeedBenefit");
                         else if(maze.Modifiers[k] is LoseADiamondTrap)

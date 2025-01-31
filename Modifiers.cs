@@ -73,48 +73,13 @@ namespace Game
             x.playerMoney ++;
         }
     }
-    public class PassThroughWallBenefit : Modifier 
+    public class DismissSpeedAndDuplicateMoneyBenefit : Modifier 
     {
-        public PassThroughWallBenefit(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
-        public override void ActivatedModifier(Parameters x) 
+        public DismissSpeedAndDuplicateMoneyBenefit(int coordinateX, int coordinateY) : base (coordinateX, coordinateY){}
+        public override void ActivatedModifier (Parameters x) //Dismiss Speed And Duplicate Money
         {
-            if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze, Directions.Right))
-            {
-                x.positionActualY += 2;   
-            }
-            else if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze, Directions.Left))
-            {
-                x.positionActualY -= 2;    
-            }
-            else if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze,Directions.Up))
-            {
-                x.positionActualX -= 2;    
-            }
-            else if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze,Directions.Down))
-            {
-                x.positionActualX += 2;    
-            }
-        }
-        public bool CanJump(int positionActualX, int positionActualY, int[,] maze, Directions directions)
-        {
-            bool canJump = false;
-            if(directions == Directions.Right && maze[positionActualX, positionActualY + 1] == 1 && maze[positionActualX, positionActualY + 2] == 0)
-            {
-                canJump = true;
-            }
-            else if(directions == Directions.Left && maze[positionActualX, positionActualY - 1] == 1 && maze[positionActualX, positionActualY - 2] == 0)
-            {
-                canJump = true;
-            }
-            else if(directions == Directions.Up && maze[positionActualX - 1, positionActualY] == 1 && maze[positionActualX - 2, positionActualY] == 0)
-            {
-                canJump = true;
-            }
-            else if(directions == Directions.Down && maze[positionActualX + 1, positionActualY] == 1 && maze[positionActualX + 2, positionActualY] == 0)
-            {
-                canJump = true;
-            }
-            return canJump;
+            x.speed = 1;
+            x.playerMoney *= 2;
         }
     }
     public class SuperSpeedBenefit : Modifier 
@@ -124,9 +89,5 @@ namespace Game
         {
             x.speed = x.speed * 2;
         }
-    }
-    public enum Directions
-    {
-        Up, Down, Left, Right,
     }
 }

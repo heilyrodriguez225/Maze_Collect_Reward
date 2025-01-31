@@ -7,7 +7,6 @@ namespace Game
         public int positionActualX; 
         public int positionActualY;
         public int round;
-        public bool itsYourTurn;
         public int cooldown; 
         public int maxCooldown;
         public int speed; 
@@ -25,10 +24,6 @@ namespace Game
         public void RoundAdd(int x)
         {
             round = x;
-        }
-        public void ItsYourTurnAdd(bool x)
-        {
-            itsYourTurn= x;
         }
         public void CooldownAdd(int x)
         {
