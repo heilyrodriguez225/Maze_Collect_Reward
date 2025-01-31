@@ -223,7 +223,7 @@ namespace Game
         {
             Modifier modifier = CheckForModifierInTheCell(player);
             if(modifier == null) return;
-            modifier.ActivatedModifier(x);
+            modifier.ActivatedModifier(x,player);
         }
         public void AddMoneyInMaze(int amountCoins, int amountDiamonds)
         {

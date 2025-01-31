@@ -12,7 +12,7 @@ namespace Game
             List<Chip> Chips = new List<Chip>();
             Chips.Add(new OrangeChip("SuperSpeed", 2, 6, 6)); 
             Chips.Add(new PinkChip("PassThroughWall ", 3, 12, 12)); 
-            Chips.Add(new BrownChip("MoveToARandomCe", 3, 9, 9));
+            Chips.Add(new BrownChip("MoveToARandomCell", 3, 9, 9));
             Chips.Add(new GreenChip("WinADiamond", 4, 16, 16));
             Chips.Add(new WhiteChip("WinACoin", 2, 10, 10));
 
@@ -54,7 +54,7 @@ namespace Game
                         switch (key.Key)
                         {
                             case ConsoleKey.A:
-                                auxPlayer.Chip.UseSkill(parameter);
+                                auxPlayer.Chip.UseSkill(parameter, auxPlayer);
                                 auxPlayer.Chip.Cooldown = auxPlayer.Chip.MaxCooldown;
                                 break;
                             default:
@@ -64,14 +64,14 @@ namespace Game
                     auxPlayer.Move(maze);
                     maze.ActivatedModifierInMaze(auxPlayer, parameter);
                     i++;
-                    Console.Clear();
-                    //Console.WriteLine(" ");
+                    //Console.Clear();
+                    Console.WriteLine(" ");
                     auxPlayer.CollectMoney(maze);
                     winnerPlayer = VictoryCondition.CheckVictory(maze,players);
                     auxPlayer.Chip.Cooldown --;
                     Draw.Print(maze, players, maze.Modifiers);
                     Draw.TurnPrint(auxPlayer);
-                    Console.WriteLine($"Speed:{auxPlayer.Chip.Speed}    Cooldown:{auxPlayer.Chip.Cooldown}    Money:{auxPlayer.Money}");
+                    Console.WriteLine($"Speed:{auxPlayer.Chip.Speed +1}    Cooldown:{auxPlayer.Chip.Cooldown}    Money:{auxPlayer.Money}");
                     Draw.ActivatedModifierPrint(maze, auxPlayer);
                 }
                 turn++;

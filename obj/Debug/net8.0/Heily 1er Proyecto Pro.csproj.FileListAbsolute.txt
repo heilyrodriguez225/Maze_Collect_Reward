@@ -40,3 +40,4 @@ C:/Users/particular/Desktop/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/obj
 /home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/obj/Debug/net8.0/Heily 1er Proyecto Pro.pdb
 /home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/obj/Debug/net8.0/Heily 1er Proyecto Pro.genruntimeconfig.cache
 /home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/obj/Debug/net8.0/ref/Heily 1er Proyecto Pro.dll
+/home/heily/Escritorio/Proyecto pro Maze_runners/Heily 1er Proyecto Pro/obj/Debug/net8.0/Heily 1er Proyecto Pro.sourcelink.json
