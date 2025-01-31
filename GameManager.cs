@@ -10,11 +10,11 @@ namespace Game
             Maze maze = new Maze(23,23);
 
             List<Chip> Chips = new List<Chip>();
-            Chips.Add(new OrangeChip("SuperSpeed", 2, 6, 6)); 
-            Chips.Add(new PinkChip("PassThroughWall ", 3, 12, 12)); 
-            Chips.Add(new BrownChip("MoveToARandomCell", 3, 9, 9));
-            Chips.Add(new GreenChip("WinADiamond", 4, 16, 16));
-            Chips.Add(new WhiteChip("WinACoin", 2, 10, 10));
+            Chips.Add(new OrangeChip("SuperSpeed", 1, 15, 15)); 
+            Chips.Add(new PinkChip("DismissSpeedAndDuplicateMoney", 2, 20, 20)); 
+            Chips.Add(new BrownChip("PassThroughWall", 3, 12, 12));
+            Chips.Add(new GreenChip("WinADiamond", 3, 16, 16));
+            Chips.Add(new WhiteChip("WinACoin", 1, 10, 10));
 
             Player player1= new Player("Player1",new OrangeChip("SuperSpeed", 2, 3, 3),0,maze);
             player1.SelectRandomChip(Chips);
@@ -64,8 +64,8 @@ namespace Game
                     auxPlayer.Move(maze);
                     maze.ActivatedModifierInMaze(auxPlayer, parameter);
                     i++;
-                    //Console.Clear();
-                    Console.WriteLine(" ");
+                    Console.Clear();
+                    //Console.WriteLine(" ");
                     auxPlayer.CollectMoney(maze);
                     winnerPlayer = VictoryCondition.CheckVictory(maze,players);
                     auxPlayer.Chip.Cooldown --;
