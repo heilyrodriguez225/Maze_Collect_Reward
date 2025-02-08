@@ -49,7 +49,7 @@ Sigue estos pasos para clonar y configurar el proyecto:
 - C#
 - .NET
 - Spectre.Console
-- 
+  
 ## Contacto
 
 - Email: heilyrodriguez225@gmail.com
