@@ -12,7 +12,7 @@ namespace Game
             List<Chip> Chips = new List<Chip>();
             Chips.Add(new OrangeChip("SuperSpeed", 1, 15, 15)); 
             Chips.Add(new PinkChip("DismissSpeedAndDuplicateMoney", 2, 20, 20)); 
-            Chips.Add(new BrownChip("PassThroughWall", 3, 12, 12));
+            Chips.Add(new BrownChip("MoveToARandomCell", 3, 12, 12));
             Chips.Add(new GreenChip("WinADiamond", 3, 16, 16));
             Chips.Add(new WhiteChip("WinACoin", 1, 10, 10));
 
@@ -26,6 +26,9 @@ namespace Game
             Player winnerPlayer = null;
             Player auxPlayer = new Player("AuxPlayer", new OrangeChip("OrangeChip",3,0,0),0,maze);
             int turn = 0;
+            Console.Clear();
+            Menu.StartGame();
+            Menu.MenuPrint();
             Draw.Print(maze, players, maze.Modifiers);
             Draw.InitialPlayer1Print(player1, players);
             Draw.InitialPlayer2Print(player2, players);

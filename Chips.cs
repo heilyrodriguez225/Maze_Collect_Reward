@@ -41,50 +41,15 @@ namespace Game
     public class BrownChip : Chip
     {
         public BrownChip(string name, int speed, int cooldown, int maxCooldown) : base(name, speed, cooldown, maxCooldown){}
-            public override void UseSkill(Parameters x, Player player) // Pass Through Wall 
-            {
-                if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze, Directions.Right))
-                {
-                    x.positionActualY += 2; 
-                    player.PositionY = x.positionActualY;  
-                }
-                else if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze, Directions.Left))
-                {
-                    x.positionActualY -= 2;
-                    player.PositionY = x.positionActualY;     
-                }
-                else if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze, Directions.Up))
-                {
-                    x.positionActualX -= 2;  
-                    player.PositionX = x.positionActualX;   
-                }
-                else if(CanJump(x.positionActualX, x.positionActualY, x.maze.maze, Directions.Down))
-                {
-                    x.positionActualX += 2;  
-                    player.PositionX = x.positionActualX;   
-                }
-            }   
-        public bool CanJump(int positionActualX, int positionActualY, int[,] maze, Directions directions)
+        public override void UseSkill(Parameters x, Player player) // Move To A Random Cell
         {
-            bool canJump = false;
-            if(directions == Directions.Right && maze[positionActualX, positionActualY + 1] == 1 && maze[positionActualX, positionActualY + 2] == 0)
-            {
-                canJump = true;
-            }
-            else if(directions == Directions.Left && maze[positionActualX, positionActualY - 1] == 1 && maze[positionActualX, positionActualY - 2] == 0)
-            {
-                canJump = true;
-            }
-            else if(directions == Directions.Up && maze[positionActualX - 1, positionActualY] == 1 && maze[positionActualX - 2, positionActualY] == 0)
-            {
-                canJump = true;
-            }
-            else if(directions == Directions.Down && maze[positionActualX + 1, positionActualY] == 1 && maze[positionActualX + 2, positionActualY] == 0)
-            {
-                canJump = true;
-            }
-            return canJump;
-        }
+            Random random = new Random();
+            int randomCell = random.Next(x.PathCells.Count); 
+            x.positionActualX = x.PathCells[randomCell][0];
+            x.positionActualY = x.PathCells[randomCell][1];
+            player.PositionX = x.positionActualX;
+            player.PositionY = x.positionActualY;
+        }            
     }
     public class GreenChip : Chip
     {
