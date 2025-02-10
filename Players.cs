@@ -18,7 +18,7 @@ namespace Game
             InitializePlayerPositionInMaze(maze);
             CollectMoney(maze);
         }
-        public void Move(Maze maze)
+        public virtual void Move(Maze maze)
         {
             ConsoleKeyInfo key = new ConsoleKeyInfo();
             key = Console.ReadKey(true);

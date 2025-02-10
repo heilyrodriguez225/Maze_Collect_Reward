@@ -7,31 +7,78 @@ namespace Game
     {
         public static void Main(string[] args)
         {
-            Maze maze = new Maze(23,23);
+            Console.Clear();
+            Menu.StartGame();
+            Menu.ShowMainMenu();
+            Menu.StartGame();
+        }
+        public static void StartGame(int numberOfPlayers, string difficultyLevel)
+        {
+            int mazeSize, modifiers, coins, diamonds;
+
+            switch (difficultyLevel)
+            {
+                case "Easy":
+                    mazeSize = 9;
+                    modifiers = 8;
+                    coins = 15;
+                    diamonds = 8;
+                    break;
+                case "Medium":
+                    mazeSize = 15;
+                    modifiers = 20;
+                    coins = 25;
+                    diamonds = 12;
+                    break;
+                case "Hard":
+                    mazeSize = 23;
+                    modifiers = 30;
+                    coins = 40;
+                    diamonds = 25;
+                    break;
+                default:
+                    mazeSize = 15; 
+                    modifiers = 20;
+                    coins = 25;
+                    diamonds = 12;
+                    break;
+            }
+            Maze maze = new Maze(mazeSize, mazeSize, modifiers, coins, diamonds);
 
             List<Chip> Chips = new List<Chip>();
-            Chips.Add(new OrangeChip("SuperSpeed", 1, 15, 15)); 
+            Chips.Add(new OrangeChip("SuperSpeed", 1, 30, 30)); 
             Chips.Add(new PinkChip("DismissSpeedAndDuplicateMoney", 2, 20, 20)); 
-            Chips.Add(new BrownChip("MoveToARandomCell", 3, 12, 12));
-            Chips.Add(new GreenChip("WinADiamond", 3, 16, 16));
+            Chips.Add(new BrownChip("MoveToARandomCell", 2, 12, 12));
+            Chips.Add(new GreenChip("WinADiamond", 2, 18, 18));
             Chips.Add(new WhiteChip("WinACoin", 1, 10, 10));
 
+            var players = new List<Player>();
             Player player1= new Player("Player1",new OrangeChip("SuperSpeed", 2, 3, 3),0,maze);
             player1.SelectRandomChip(Chips);
-            Player player2= new Player("Player2",new OrangeChip("SuperSpeed", 2, 3, 3),0,maze);
-            player2.SelectRandomChip(Chips);
-            var players = new List<Player>();
             players.Add(player1);
-            players.Add(player2);
+
+            if(numberOfPlayers == 1)
+            {
+                Player virtualPlayer = new VirtualPlayer("VirtualPlayer", new OrangeChip("SuperSpeed", 2, 3, 3), 0, maze);
+                virtualPlayer.SelectRandomChip(Chips);
+                players.Add(virtualPlayer);
+            }
+            else
+            {
+                Player player2= new Player("Player2",new OrangeChip("SuperSpeed", 2, 3, 3),0,maze);
+                player2.SelectRandomChip(Chips);
+                players.Add(player2);
+            }
             Player winnerPlayer = null;
             Player auxPlayer = new Player("AuxPlayer", new OrangeChip("OrangeChip",3,0,0),0,maze);
             int turn = 0;
-            Console.Clear();
-            Menu.StartGame();
-            Menu.MenuPrint();
             Draw.Print(maze, players, maze.Modifiers);
             Draw.InitialPlayer1Print(player1, players);
-            Draw.InitialPlayer2Print(player2, players);
+            
+            if (numberOfPlayers > 1)
+            {
+                Draw.InitialPlayer2Print(players[1], players);
+            }
             do{
                 int i = 0;
                 int round = turn/players.Count + 1;

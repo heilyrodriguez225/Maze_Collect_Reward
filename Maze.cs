@@ -18,7 +18,7 @@ namespace Game
         public List<Coin> Coins = new List<Coin>();
         public List<Diamond> Diamonds = new List<Diamond>();
 
-        public Maze(int rows, int columns) //Constructor de la clase Maze
+        public Maze(int rows, int columns, int amountModifiers, int amountCoins, int amountDiamonds) //Constructor de la clase Maze
         {
            this.columns = columns;
            this.rows = rows;
@@ -27,8 +27,8 @@ namespace Game
            GenerateMaze(1,1);
            ApplyMask();
            AddPathCells();
-           AddModifiersInMaze(30);
-           AddMoneyInMaze(40,25);
+           AddModifiersInMaze(amountModifiers);
+           AddMoneyInMaze(amountCoins,amountDiamonds);
         }
         public void InitializeMaze()
         {

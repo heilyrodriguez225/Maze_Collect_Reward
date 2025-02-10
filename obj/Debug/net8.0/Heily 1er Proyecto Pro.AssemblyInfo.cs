@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Heily 1er Proyecto Pro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4b78693c9c6fc90997a39042bceacbddb947b85")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+081b8359104081da1deffd29a85f65f97d149d89")]
 [assembly: System.Reflection.AssemblyProductAttribute("Heily 1er Proyecto Pro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Heily 1er Proyecto Pro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
