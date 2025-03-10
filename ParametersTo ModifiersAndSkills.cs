@@ -6,7 +6,6 @@ namespace Game
     {
         public int positionActualX; 
         public int positionActualY;
-        public int round;
         public int cooldown; 
         public int maxCooldown;
         public int speed; 
@@ -20,10 +19,6 @@ namespace Game
         public void PositionActualYAdd(int x)
         {
             positionActualY = x;
-        }
-        public void RoundAdd(int x)
-        {
-            round = x;
         }
         public void CooldownAdd(int x)
         {

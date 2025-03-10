@@ -4,7 +4,7 @@
 
 ## Descripción
 
-En **Maze_Collect_Reward**, los jugadores navegan a través de un laberinto generado aleatoriamente, recolectando dinero y diamantes, teniendo cuidado con los modificadores. Cada jugador recibe una ficha aleatoria con una habilidad especial. Los jugadores se mueven usando las teclas de direcciones y pueden usar su habilidad pulsando la tecla `A`.
+En **Maze_Collect_Reward**, los jugadores navegan a través de un laberinto generado aleatoriamente, recolectando dinero y diamantes, teniendo cuidado con los modificadores. Cada jugador recibe una ficha aleatoria con una habilidad especial.
 
 ### Características Principales
 
@@ -15,17 +15,25 @@ En **Maze_Collect_Reward**, los jugadores navegan a través de un laberinto gene
 - **Controles Sencillos**: Usa las teclas de direcciones para moverte y la tecla `A` para usar tu habilidad.
 - **Juego en Consola**:Desarrollado en C# utilizando la librería Spectre.Console.
 
+### Cómo Jugar
+
+- **Movimiento**: Usa las teclas de dirección (`↑`, `↓`, `←`, `→`) para moverte por el laberinto.
+- **Habilidad**: Presiona la tecla `A` para usar la habilidad especial de tu ficha.
+- **Objetivo**: Recolecta la mayor cantidad de dinero (monedas y diamantes) antes de que se acabe el tiempo o no queden más objetos por recolectar.
+
 ### Funcionalidades del juego
 
-- **Chips**:Crea las fichas con su habilidad.
-- **Draw**:Dibuja todo el juego
-- **GameManager**:Controla el flujo del juego.
-- **Maze**: Genera el laberinto de forma recursiva, le pone máscaras para hacerlo de conexión múltiple y le añade el dinero y los modificadores.
+- **Chips**: Crea las fichas con su habilidad.
+- **Draw**: Se encarga de dibujar el laberinto y los elementos del juego en la consola.
+- **GameManager**: Gestiona el flujo del juego, incluyendo la inicialización del laberinto, los jugadores y la lógica del juego.
+- **Maze**: Genera el laberinto de forma recursiva, contiene la lógica para generarlo y gestionar los objetos dentro de él.
 - **Modifiers**: Crea los modifificadores.
-- **Money**: Crea el dinero de tipo coin y diamont.
-- **Parameters**: Contenedor de dependencia para pasarle los parámetros pasa el uso de las habilidades y activar los modificadores.
+- **Money**: Define los tipos de dinero que se pueden recolectar en el laberinto: monedas y diamantes.
+- **ParametersToModifiersAndSkills**: Contenedor de dependencia para pasarle los parámetros pasa el uso de las habilidades y activar los modificadores.
 - **Players**: Crea un jugador, su movimiento, lo inicializa en una posición y le asigna una ficha aleatoriamente.
 - **VictoryCondition**: Determina la condición de victoria del juego.
+- **VirtualPlayer**: Un jugador virtual que tiene un comportamiento automatizado para moverse por el laberinto y recolectar dinero.
+- **Menu**: Maneja el menú del juego, permitiendo al usuario seleccionar el número de jugadores, el nivel de dificultad, jugar o salir.
 
 ### Instalación
 

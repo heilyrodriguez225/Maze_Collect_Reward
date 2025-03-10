@@ -69,11 +69,4 @@ namespace Game
             player.Money = x.playerMoney;
         }
     }
-    public enum Directions
-    {
-        Right,
-        Left,
-        Up,
-        Down,
-    }
 }

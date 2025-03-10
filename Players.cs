@@ -9,7 +9,6 @@ namespace Game
         public int PositionY { get; set; }
         public Chip Chip { get; set; }
         public int Money { get; set; }
-
         public Player( string name,Chip chip, int money,Maze maze)
         {
             Name = name;

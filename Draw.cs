@@ -9,46 +9,47 @@ namespace Game
         {
             for (int x = 0; x < maze.maze.GetLength(0); x++)
             {
+                string row = "";
                 for (int y = 0; y < maze.maze.GetLength(1); y++)
                 {
                         if(x == players[0].PositionX && y == players[0].PositionY)
                         {
                             if(players[0].Chip is OrangeChip)
-                                AnsiConsole.Write("🦋");
+                                row+=("🦋");
                             else if(players[0].Chip is PinkChip)
-                                AnsiConsole.Write("🐖");
+                                row+=("🐖");
                             else if(players[0].Chip is BrownChip)
-                                AnsiConsole.Write("🦉");
+                                row+=("🦉");
                             else if(players[0].Chip is GreenChip)
-                                AnsiConsole.Write("🐢");
+                                row+=("🐢");
                             else if(players[0].Chip is WhiteChip)
-                                AnsiConsole.Write("🦢");
+                                row+=("🦢");
                         }
                         else if (x == players[1].PositionX && y == players[1].PositionY)
                         {
                             if(players[1].Chip is OrangeChip)
-                                AnsiConsole.Write("🦀");
+                                row+=("🦀");
                             else if(players[1].Chip is PinkChip)
-                                AnsiConsole.Write("🦩");
+                                row+=("🦩");
                             else if(players[1].Chip is BrownChip)
-                                AnsiConsole.Write("🐎");
+                                row+=("🐎");
                             else if(players[1].Chip is GreenChip)
-                                AnsiConsole.Write("🐊");
+                                row+=("🐊");
                             else if(players[1].Chip is WhiteChip)
-                                AnsiConsole.Write("🐑");
+                                row+=("🐑");
                         }
                         else if(PrintCoins(maze,x,y))
-                            AnsiConsole.Write("💰");
+                            row+=("💰");
                         else if(PrintDiamonds(maze,x,y))
-                            AnsiConsole.Write("💎");
+                            row+=("💎");
                         else if(PrintModifiers(maze,x,y))
-                            AnsiConsole.Write("🔸");
+                            row+=("🔸");
                         else if(maze.maze[x,y] == 1)
-                            AnsiConsole.Write("🧱");
+                            row+=("🧱");
                         else if(maze.maze[x,y] == 0)
-                            AnsiConsole.Write("  ");
+                            row+=("  ");
                 }
-                Console.WriteLine();
+                Console.WriteLine(row);
             }
         }
         public static bool PrintModifiers(Maze maze,int x, int y)

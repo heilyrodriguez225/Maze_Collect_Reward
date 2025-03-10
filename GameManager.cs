@@ -47,10 +47,10 @@ namespace Game
 
             List<Chip> Chips = new List<Chip>();
             Chips.Add(new OrangeChip("SuperSpeed", 1, 30, 30)); 
-            Chips.Add(new PinkChip("DismissSpeedAndDuplicateMoney", 2, 20, 20)); 
+            Chips.Add(new PinkChip("DismissSpeedAndDuplicateMoney", 2, 24, 24)); 
             Chips.Add(new BrownChip("MoveToARandomCell", 2, 12, 12));
             Chips.Add(new GreenChip("WinADiamond", 2, 18, 18));
-            Chips.Add(new WhiteChip("WinACoin", 1, 10, 10));
+            Chips.Add(new WhiteChip("WinACoin", 3, 10, 10));
 
             var players = new List<Player>();
             Player player1= new Player("Player1",new OrangeChip("SuperSpeed", 2, 3, 3),0,maze);
@@ -88,7 +88,6 @@ namespace Game
                     Parameters parameter = new Parameters();
                     parameter.PositionActualXAdd(auxPlayer.PositionX);
                     parameter.PositionActualYAdd(auxPlayer.PositionY);
-                    parameter.RoundAdd(round);
                     parameter.CooldownAdd(auxPlayer.Chip.Cooldown);
                     parameter.MaxCooldownAdd(auxPlayer.Chip.MaxCooldown);
                     parameter.SpeedAdd(auxPlayer.Chip.Speed);
